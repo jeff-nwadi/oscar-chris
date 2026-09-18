@@ -1,8 +1,9 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { Star } from 'lucide-react'
+import { gsap } from 'gsap'
 
 interface Review {
   id: string
@@ -53,8 +54,45 @@ const REVIEWS: Review[] = [
 ]
 
 export const Testimonials = () => {
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const [count100, setCount100] = useState(0)
+  const [count200, setCount200] = useState(0)
+  const hasAnimated = useRef(false)
+
+  useEffect(() => {
+    if (!sectionRef.current) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated.current) {
+            hasAnimated.current = true
+
+            const obj = { val1: 0, val2: 0 }
+            gsap.to(obj, {
+              val1: 100,
+              val2: 200,
+              duration: 1.6,
+              ease: 'power2.out',
+              onUpdate: () => {
+                setCount100(Math.round(obj.val1))
+                setCount200(Math.round(obj.val2))
+              },
+            })
+
+            observer.disconnect()
+          }
+        })
+      },
+      { threshold: 0.15 }
+    )
+
+    observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section id="testimonials" className="w-full bg-[#252526] text-white py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" ref={sectionRef} className="w-full bg-[#252526] text-white py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="mb-8 sm:mb-12">
@@ -116,27 +154,27 @@ export const Testimonials = () => {
             </div>
           </div>
 
-          {/* Card 3: Stat Highlight Card (Satisfaction Rate) */}
+          {/* Card 3: Stat Highlight Card (Satisfaction Rate - Animated Count) */}
           <div className="bg-[#1E1F21] border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between min-h-50 hover:border-lemon/40 transition-colors duration-200">
             <p className="text-zinc-300 text-xs sm:text-sm font-medium leading-relaxed">
               I've worked with 50+ happy clients
             </p>
             <div>
               <span className="font-condensed text-5xl sm:text-6xl md:text-7xl font-normal text-lemon block leading-none select-none mb-1 tracking-wide">
-                100%
+                {count100}%
               </span>
               <span className="text-xs sm:text-sm text-zinc-400 font-normal">Satisfaction Rate</span>
             </div>
           </div>
 
-          {/* Card 4: Stat Highlight Card (Growth) */}
+          {/* Card 4: Stat Highlight Card (Growth - Animated Count) */}
           <div className="bg-lemon text-black rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between min-h-50 shadow-lg hover:bg-lemon/90 transition-colors duration-200">
             <p className="text-black/90 text-xs sm:text-sm font-medium leading-relaxed">
               My work helped clients grow their revenue by 200%
             </p>
             <div>
               <span className="font-condensed text-5xl sm:text-6xl md:text-7xl font-normal tracking-wide text-black block leading-none select-none mb-1">
-                200%
+                {count200}%
               </span>
               <span className="text-xs text-black/80 font-medium">Growth</span>
             </div>
