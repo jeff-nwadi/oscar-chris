@@ -58,10 +58,10 @@ export const Testimonials = () => {
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="mb-8 sm:mb-12">
-          <h2 className="font-condensed text-3xl sm:text-5xl md:text-6xl font-normal tracking-wide text-white uppercase leading-none select-none mb-3 sm:mb-4">
+          <h2 className="font-condensed text-2xl sm:text-3xl md:text-5xl font-normal tracking-wide text-white uppercase leading-none select-none mb-3 sm:mb-4">
             WHAT MY CLIENTS SAY
           </h2>
-          <p className="text-zinc-400 text-xs sm:text-sm max-w-md leading-relaxed font-normal">
+          <p className="text-zinc-400 text-base sm:text-[18px] max-w-md leading-relaxed font-normal">
             Here's what my clients have shared about their experiences working with me. Their trust and satisfaction motivate me to continue delivering designs that make an impact.
           </p>
         </div>

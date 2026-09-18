@@ -86,10 +86,10 @@ export const Blog = () => {
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="blog-header mb-10 sm:mb-14">
-          <h2 className="font-condensed text-3xl sm:text-5xl md:text-6xl font-normal tracking-wide text-white uppercase leading-none select-none mb-3 sm:mb-4">
+          <h2 className="font-condensed text-2xl sm:text-3xl md:text-5xl font-normal tracking-wide text-white uppercase leading-none select-none mb-3 sm:mb-4">
             DESIGN INSIGHTS & IDEAS
           </h2>
-          <p className="text-zinc-400 text-xs sm:text-sm max-w-md leading-relaxed font-normal">
+          <p className="text-zinc-400 text-base sm:text-lg max-w-md leading-relaxed font-normal">
             From design trends to creative processes, these articles offer insights to help you elevate your craft, solve challenges, and spark new ideas for your projects.
           </p>
         </div>
@@ -119,12 +119,12 @@ export const Blog = () => {
                 </div>
 
                 {/* Article Title */}
-                <h3 className="font-condensed text-2xl sm:text-3xl font-normal text-white uppercase tracking-wide leading-snug mb-3 group-hover:text-lemon transition-colors duration-300">
+                <h3 className="font-condensed text-2xl sm:text-2xl font-normal text-white uppercase tracking-wide leading-snug mb-3 group-hover:text-lemon transition-colors duration-300">
                   {post.title}
                 </h3>
 
                 {/* Article Description */}
-                <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed font-normal">
+                <p className="text-zinc-400 text-sm sm:text-base leading-relaxed font-normal">
                   {post.description}
                 </p>
               </div>

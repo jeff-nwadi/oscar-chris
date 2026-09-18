@@ -62,10 +62,10 @@ export const Contact = () => {
 
         {/* Right Column: Heading + Form */}
         <div>
-          <h2 className="font-condensed text-3xl sm:text-5xl md:text-6xl font-normal tracking-wide text-white uppercase leading-none select-none mb-3 sm:mb-4">
+          <h2 className="font-condensed text-2xl sm:text-3xl md:text-5xl font-normal tracking-wide text-white uppercase leading-none select-none mb-3 sm:mb-4">
             LET'S WORK TOGETHER
           </h2>
-          <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-8 font-normal">
+          <p className="text-zinc-400 text-base sm:text-lg leading-relaxed mb-8 font-normal">
             Let's build something impactful together—whether it's your brand, your website, or your next big idea.
           </p>
 
@@ -79,7 +79,7 @@ export const Contact = () => {
               {/* Name + Email Row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1">
-                  <label className="text-xs text-zinc-400 font-medium">Name</label>
+                  <label className="text-sm text-zinc-400 font-medium">Name</label>
                   <input
                     type="text"
                     name="name"
@@ -92,7 +92,7 @@ export const Contact = () => {
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <label className="text-xs text-zinc-400 font-medium">Email</label>
+                  <label className="text-sm text-zinc-400 font-medium">Email</label>
                   <input
                     type="email"
                     name="email"
@@ -107,7 +107,7 @@ export const Contact = () => {
 
               {/* Service Needed Select */}
               <div className="flex flex-col gap-1">
-                <label className="text-xs text-zinc-400 font-medium">Service Needed ?</label>
+                <label className="text-sm text-zinc-400 font-medium">Service Needed ?</label>
                 <select
                   name="service"
                   value={form.service}
@@ -123,7 +123,7 @@ export const Contact = () => {
 
               {/* Message Textarea */}
               <div className="flex flex-col gap-1">
-                <label className="text-xs text-zinc-400 font-medium">What Can I Help You...</label>
+                <label className="text-sm text-zinc-400 font-medium">What Can I Help You...</label>
                 <textarea
                   name="message"
                   placeholder="Hello, I'd like to enquire about..."
