@@ -1,10 +1,15 @@
+import { About } from "@/components/HomePage/About";
+import { FeaturedProjects } from "@/components/HomePage/FeaturedProjects";
 import { Hero } from "@/components/HomePage/Hero";
-import Image from "next/image";
+import { WhatICanDo } from "@/components/HomePage/WhatICanDo";
 
 export default function Home() {
   return (
-  <div>
-    <Hero />
-  </div>
+    <main>
+      <Hero />
+      <WhatICanDo />
+      <About />
+      <FeaturedProjects />
+    </main>
   );
 }

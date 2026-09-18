@@ -25,11 +25,10 @@ export const MobileMenu = () => {
     const overlay = overlayRef.current
     if (!overlay) return
 
-    // On initial mount, set menu position off-screen if closed
+    // Ensure initial off-screen state on first render
     if (isFirstRender.current) {
       isFirstRender.current = false
       gsap.set(overlay, { yPercent: -100, autoAlpha: 0 })
-      if (!isOpen) return
     }
 
     if (isOpen) {
@@ -84,7 +83,10 @@ export const MobileMenu = () => {
     <div
       ref={overlayRef}
       aria-label="Navigation Menu Overlay"
-      className="fixed inset-0 z-50 flex flex-col justify-between bg-[#1a1a1b] text-white p-8 md:p-16 border-b border-white/10 shadow-2xl"
+      className={`fixed inset-0 z-50 flex flex-col justify-between bg-[#1a1a1b] text-white p-8 md:p-16 border-b border-white/10 ${
+        isOpen ? 'pointer-events-auto' : 'pointer-events-none'
+      }`}
+      style={{ opacity: 0, visibility: 'hidden' }}
     >
       {/* Top Header */}
       <div className="flex justify-between items-center w-full max-w-5xl mx-auto border-b border-white/10 pb-6">
