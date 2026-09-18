@@ -48,38 +48,11 @@ export const About = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
-
-            tl.fromTo(
-              '.about-header',
-              { autoAlpha: 0, y: 40 },
-              { autoAlpha: 1, y: 0, duration: 0.8 }
+            gsap.fromTo(
+              '.about-item',
+              { autoAlpha: 0, y: 15 },
+              { autoAlpha: 1, y: 0, duration: 0.35, ease: 'power2.out', stagger: 0.06 }
             )
-              .fromTo(
-                '.about-stat-item',
-                { autoAlpha: 0, y: 30, scale: 0.9 },
-                { autoAlpha: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.15 },
-                '-=0.4'
-              )
-              .fromTo(
-                '.about-contact-row',
-                { autoAlpha: 0, y: 20 },
-                { autoAlpha: 1, y: 0, duration: 0.6 },
-                '-=0.3'
-              )
-              .fromTo(
-                '.about-social-icon',
-                { autoAlpha: 0, scale: 0.7, y: 15 },
-                { autoAlpha: 1, scale: 1, y: 0, duration: 0.5, stagger: 0.08 },
-                '-=0.4'
-              )
-              .fromTo(
-                '.about-cta-btn',
-                { autoAlpha: 0, scale: 0.85, y: 15 },
-                { autoAlpha: 1, scale: 1, y: 0, duration: 0.6, ease: 'back.out(1.7)' },
-                '-=0.3'
-              )
-
             observer.disconnect()
           }
         })
@@ -88,7 +61,6 @@ export const About = () => {
     )
 
     observer.observe(sectionRef.current)
-
     return () => observer.disconnect()
   }, [])
 
@@ -96,49 +68,49 @@ export const About = () => {
     <section id="about" ref={sectionRef} className="w-full bg-[#252526] text-white py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Section Title */}
-        <div className="about-header">
-          <h2 className="font-condensed text-3xl sm:text-5xl md:text-6xl font-normal tracking-wide text-white uppercase leading-none select-none mb-3 sm:mb-4">
+        <div className="about-item">
+          <h2 className="font-condensed text-2xl sm:text-3xl md:text-5xl font-normal tracking-wide text-white uppercase leading-none select-none mb-3 sm:mb-4">
             ABOUT ME
           </h2>
 
           {/* Bio Subtitle */}
-          <p className="text-zinc-400 text-xs sm:text-sm max-w-lg leading-relaxed font-normal mb-8 sm:mb-10">
+          <p className="text-zinc-400 text-base sm:text-[18px] max-w-lg leading-relaxed font-normal mb-8 sm:mb-10">
             Hi, I'm Oscar — a digital designer and Framer developer passionate about crafting meaningful and impactful digital experiences.
           </p>
         </div>
 
         {/* Stat Counters Row */}
         <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-xl mb-8 sm:mb-10">
-          <div className="about-stat-item">
+          <div className="about-item">
             <span className="font-condensed text-4xl sm:text-5xl md:text-6xl font-normal text-lemon block leading-none select-none">
               5
             </span>
-            <span className="text-xs sm:text-sm text-zinc-300 font-medium block mt-1 leading-snug">
+            <span className="text-lg sm:text-base text-zinc-300 font-medium block mt-1 leading-snug">
               Years of Experience
             </span>
           </div>
 
-          <div className="about-stat-item">
+          <div className="about-item">
             <span className="font-condensed text-4xl sm:text-5xl md:text-6xl font-normal text-lemon block leading-none select-none">
               20+
             </span>
-            <span className="text-xs sm:text-sm text-zinc-300 font-medium block mt-1 leading-snug">
+            <span className="text-lg sm:text-base text-zinc-300 font-medium block mt-1 leading-snug">
               Completed Projects
             </span>
           </div>
 
-          <div className="about-stat-item">
+          <div className="about-item">
             <span className="font-condensed text-4xl sm:text-5xl md:text-6xl font-normal text-lemon block leading-none select-none">
               30+
             </span>
-            <span className="text-xs sm:text-sm text-zinc-300 font-medium block mt-1 leading-snug">
+            <span className="text-lg sm:text-base text-zinc-300 font-medium block mt-1 leading-snug">
               Clients Worldwide
             </span>
           </div>
         </div>
 
         {/* Contact Details Row */}
-        <div className="about-contact-row flex flex-col sm:flex-row gap-4 sm:gap-12 mb-8 text-xs sm:text-sm text-zinc-300">
+        <div className="about-item flex flex-col sm:flex-row gap-4 sm:gap-12 mb-8 text-lg sm:text-base text-zinc-300">
           <div>
             <span className="text-zinc-400 block mb-0.5">Call Today :</span>
             <a
@@ -161,13 +133,13 @@ export const About = () => {
         </div>
 
         {/* Social Icons Row */}
-        <div className="flex items-center gap-4 mb-8 text-zinc-300">
+        <div className="about-item flex items-center gap-4 mb-8 text-zinc-300">
           <a
             href="https://x.com"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="X (Twitter)"
-            className="about-social-icon p-2 rounded-full border border-white/10 hover:border-lemon hover:text-lemon transition-all duration-300"
+            className="p-2 rounded-full border border-white/10 hover:border-lemon hover:text-lemon transition-colors duration-200"
           >
             <TwitterIcon className="w-4 h-4" />
           </a>
@@ -177,7 +149,7 @@ export const About = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
-            className="about-social-icon p-2 rounded-full border border-white/10 hover:border-lemon hover:text-lemon transition-all duration-300"
+            className="p-2 rounded-full border border-white/10 hover:border-lemon hover:text-lemon transition-colors duration-200"
           >
             <InstagramIcon className="w-4 h-4" />
           </a>
@@ -187,7 +159,7 @@ export const About = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Behance"
-            className="about-social-icon p-2 rounded-full border border-white/10 hover:border-lemon hover:text-lemon transition-all duration-300"
+            className="p-2 rounded-full border border-white/10 hover:border-lemon hover:text-lemon transition-colors duration-200"
           >
             <BehanceIcon className="w-4 h-4" />
           </a>
@@ -197,14 +169,14 @@ export const About = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Dribbble"
-            className="about-social-icon p-2 rounded-full border border-white/10 hover:border-lemon hover:text-lemon transition-all duration-300"
+            className="p-2 rounded-full border border-white/10 hover:border-lemon hover:text-lemon transition-colors duration-200"
           >
             <DribbbleIcon className="w-4 h-4" />
           </a>
         </div>
 
         {/* CTA Button: MY STORY */}
-        <div className="about-cta-btn">
+        <div className="about-item">
           <Link href="#story">
             <InteractiveHoverButton text="My Story" className="w-36 py-2.5" />
           </Link>

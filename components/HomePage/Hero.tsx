@@ -22,69 +22,62 @@ export const initHeroAnimation = () => {
     }
   }
 
-  // Set initial hidden/offset states via GSAP set (autoAlpha avoids FOUC)
-  gsap.set('#hero-navbar', { autoAlpha: 0, y: -20 })
-  gsap.set('#hero-left-content', { autoAlpha: 0, x: -60 })
-  gsap.set('#hero-portrait-frame', { autoAlpha: 0, scale: 0.9 })
-  gsap.set('#hero-right-content', { autoAlpha: 0, x: 60 })
-  gsap.set('#hero-badge', { autoAlpha: 0, scale: 0, rotation: -15 })
-  gsap.set('#hero-toggle', { autoAlpha: 0, y: 15 })
+  // Set initial hidden/offset states (autoAlpha used only for text columns, opacity 1 for portrait & badge)
+  gsap.set('#hero-navbar', { autoAlpha: 0, y: -10 })
+  gsap.set('#hero-left-content', { autoAlpha: 0, x: -25 })
+  gsap.set('#hero-portrait-frame', { autoAlpha: 1, scale: 0.88 })
+  gsap.set('#hero-right-content', { autoAlpha: 0, x: 25 })
+  gsap.set('#hero-badge', { autoAlpha: 1, scale: 0.6 })
 
-  // Master entrance timeline
-  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+  // Master entrance timeline — smooth, elegant timing
+  const tl = gsap.timeline({ defaults: { ease: 'power2.out' } })
 
   tl.to('#hero-navbar', {
     autoAlpha: 1,
     y: 0,
-    duration: 0.8,
-    ease: 'power2.out',
+    duration: 0.55,
   })
     .to(
       '#hero-left-content',
       {
         autoAlpha: 1,
         x: 0,
-        duration: 0.9,
-        ease: 'power3.out',
+        duration: 0.55,
       },
-      '-=0.4'
+      '-=0.35'
     )
     .to(
       '#hero-portrait-frame',
       {
-        autoAlpha: 1,
         scale: 1,
-        duration: 0.9,
-        ease: 'power2.out',
+        duration: 0.6,
+        ease: 'back.out(1.3)',
       },
-      '-=0.5'
+      '-=0.4'
     )
     .to(
       '#hero-right-content',
       {
         autoAlpha: 1,
         x: 0,
-        duration: 0.9,
-        ease: 'power3.out',
+        duration: 0.55,
       },
-      '-=0.6'
+      '-=0.4'
     )
     .to(
       '#hero-badge',
       {
-        autoAlpha: 1,
         scale: 1,
-        rotation: 0,
-        duration: 0.8,
-        ease: 'back.out(1.7)',
+        duration: 0.5,
+        ease: 'back.out(1.5)',
       },
-      '-=0.4'
+      '-=0.3'
     )
 
   // Subtle continuous yoyo floating animation on "Hi" badge
   gsap.to('#hero-badge', {
-    y: -6,
-    duration: 2.2,
+    y: -4,
+    duration: 2.0,
     ease: 'sine.easeInOut',
     yoyo: true,
     repeat: -1,
@@ -137,7 +130,7 @@ export const Hero = () => {
             id="hero-left-content"
             className="w-full lg:w-auto flex-1 flex flex-col items-center text-center sm:items-start sm:text-left lg:items-start lg:text-left z-10 lg:pr-2 xl:pr-4 relative"
           >
-            <span className="text-base sm:text-[24px] lg:text-[28px] font-heading text-white tracking-wider font-normal uppercase mb-3 sm:mb-0 block sm:absolute sm:bottom-full sm:left-0 sm:pb-3 text-center sm:text-left">
+            <span className="text-base sm:text-[24px] lg:text-[28px] font-heading text-white tracking-wider font-light uppercase mb-3 sm:mb-0 block sm:absolute sm:bottom-full sm:left-0 sm:pb-4 text-center sm:text-left">
               Oscar Christopher
             </span>
             <h1 className="font-condensed text-[20vw] sm:text-[16vw] lg:text-[6.5rem] xl:text-[8rem] font-normal leading-[0.82] tracking-wide text-white uppercase select-none text-center sm:text-left">
@@ -200,7 +193,7 @@ export const Hero = () => {
             <h1 className="font-condensed text-[20vw] sm:text-[16vw] lg:text-[6.5rem] xl:text-[8rem] font-normal leading-[0.82] tracking-wide text-white uppercase select-none text-center sm:text-right lg:text-left">
               DESIGNER
             </h1>
-            <p className="text-zinc-400 text-base sm:text-[18px] font-normal max-w-[240px] leading-relaxed mt-2 sm:mt-4 lg:mt-5 text-center sm:text-right lg:text-left mx-auto sm:ml-auto sm:mr-0 lg:mx-0">
+            <p className="text-gray-300 text-base sm:text-[24px] font-normal max-w-[240px] leading-relaxed mt-2 sm:mt-4 lg:mt-5 text-center sm:text-right lg:text-left mx-auto sm:ml-auto sm:mr-0 lg:mx-0">
               I'm a digital designer and Video Editor
             </p>
           </div>

@@ -1,9 +1,8 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import { Star } from 'lucide-react'
-import { gsap } from 'gsap'
 
 interface Review {
   id: string
@@ -54,45 +53,11 @@ const REVIEWS: Review[] = [
 ]
 
 export const Testimonials = () => {
-  const sectionRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (!sectionRef.current) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
-
-            tl.fromTo(
-              '.testimonials-header',
-              { autoAlpha: 0, y: 40 },
-              { autoAlpha: 1, y: 0, duration: 0.8 }
-            ).fromTo(
-              '.bento-card',
-              { autoAlpha: 0, y: 30, scale: 0.95 },
-              { autoAlpha: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.1 },
-              '-=0.4'
-            )
-
-            observer.disconnect()
-          }
-        })
-      },
-      { threshold: 0.15 }
-    )
-
-    observer.observe(sectionRef.current)
-
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <section id="testimonials" ref={sectionRef} className="w-full bg-[#252526] text-white py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="w-full bg-[#252526] text-white py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
-        <div className="testimonials-header mb-8 sm:mb-12">
+        <div className="mb-8 sm:mb-12">
           <h2 className="font-condensed text-3xl sm:text-5xl md:text-6xl font-normal tracking-wide text-white uppercase leading-none select-none mb-3 sm:mb-4">
             WHAT MY CLIENTS SAY
           </h2>
@@ -104,7 +69,7 @@ export const Testimonials = () => {
         {/* 6-Card Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           {/* Card 1: Review 1 */}
-          <div className="bento-card bg-zinc-900/60 border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-lemon/40 transition-all duration-300">
+          <div className="bg-zinc-900/60 border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-lemon/40 transition-colors duration-200">
             <div>
               <div className="flex gap-1 text-lemon mb-4">
                 {[...Array(REVIEWS[0].rating)].map((_, i) => (
@@ -128,7 +93,7 @@ export const Testimonials = () => {
           </div>
 
           {/* Card 2: Review 2 */}
-          <div className="bento-card bg-zinc-900/60 border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-lemon/40 transition-all duration-300">
+          <div className="bg-zinc-900/60 border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-lemon/40 transition-colors duration-200">
             <div>
               <div className="flex gap-1 text-lemon mb-4">
                 {[...Array(REVIEWS[1].rating)].map((_, i) => (
@@ -152,7 +117,7 @@ export const Testimonials = () => {
           </div>
 
           {/* Card 3: Stat Highlight Card (Satisfaction Rate) */}
-          <div className="bento-card bg-[#1E1F21] border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between min-h-[200px] hover:border-lemon/40 transition-all duration-300">
+          <div className="bg-[#1E1F21] border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between min-h-50 hover:border-lemon/40 transition-colors duration-200">
             <p className="text-zinc-300 text-xs sm:text-sm font-medium leading-relaxed">
               I've worked with 50+ happy clients
             </p>
@@ -165,7 +130,7 @@ export const Testimonials = () => {
           </div>
 
           {/* Card 4: Stat Highlight Card (Growth) */}
-          <div className="bento-card bg-lemon text-black rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between min-h-[200px] shadow-lg hover:bg-lemon/90 transition-all duration-300">
+          <div className="bg-lemon text-black rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between min-h-50 shadow-lg hover:bg-lemon/90 transition-colors duration-200">
             <p className="text-black/90 text-xs sm:text-sm font-medium leading-relaxed">
               My work helped clients grow their revenue by 200%
             </p>
@@ -178,7 +143,7 @@ export const Testimonials = () => {
           </div>
 
           {/* Card 5: Review 3 */}
-          <div className="bento-card bg-zinc-900/60 border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-lemon/40 transition-all duration-300">
+          <div className="bg-zinc-900/60 border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-lemon/40 transition-colors duration-200">
             <div>
               <div className="flex gap-1 text-lemon mb-4">
                 {[...Array(REVIEWS[2].rating)].map((_, i) => (
@@ -202,7 +167,7 @@ export const Testimonials = () => {
           </div>
 
           {/* Card 6: Review 4 */}
-          <div className="bento-card bg-zinc-900/60 border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-lemon/40 transition-all duration-300">
+          <div className="bg-zinc-900/60 border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:border-lemon/40 transition-colors duration-200">
             <div>
               <div className="flex gap-1 text-lemon mb-4">
                 {[...Array(REVIEWS[3].rating)].map((_, i) => (

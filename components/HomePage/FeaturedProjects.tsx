@@ -71,7 +71,7 @@ const Card = ({
       >
         {/* Top Header Row */}
         <div className="flex items-center justify-between gap-4 mb-4 sm:mb-6">
-          <h3 className="font-condensed text-2xl sm:text-4xl md:text-5xl font-normal uppercase text-white tracking-wide">
+          <h3 className="font-condensed text-xl sm:text-2xl md:text-3xl font-normal uppercase text-white tracking-wide">
             {title}
           </h3>
           {category && (
@@ -85,7 +85,7 @@ const Card = ({
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-10 items-center">
           {/* Left Column: Description & See More Link */}
           <div className="md:col-span-5 flex flex-col justify-between space-y-6">
-            <p className="text-zinc-300 text-xs sm:text-sm leading-relaxed font-normal">
+            <p className="text-zinc-300 text-sm sm:text-base leading-relaxed font-normal">
               {description}
             </p>
 
@@ -94,7 +94,7 @@ const Card = ({
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 text-white hover:text-lemon text-xs sm:text-sm font-medium transition-colors group cursor-pointer"
+                className="inline-flex items-center gap-2.5 text-lemon hover:text-lemon text-xs sm:text-sm font-medium transition-colors group cursor-pointer"
               >
                 <span className="underline underline-offset-4">See more</span>
                 <svg
@@ -134,10 +134,10 @@ export const FeaturedProjects = () => {
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="mb-12 sm:mb-16">
-          <h2 className="font-condensed text-3xl sm:text-5xl md:text-6xl font-normal tracking-wide text-white uppercase leading-none select-none mb-3 sm:mb-4">
+          <h2 className="font-condensed text-2xl sm:text-3xl md:text-5xl font-normal tracking-wide text-white uppercase leading-none select-none mb-3 sm:mb-4">
             FEATURED PROJECTS
           </h2>
-          <p className="text-zinc-400 text-xs sm:text-sm max-w-md leading-relaxed font-normal">
+          <p className="text-zinc-400 text-base sm:text-[18px] max-w-md leading-relaxed font-normal">
             These selected projects reflect my passion for blending strategy with creativity — solving real problems through thoughtful design and impactful storytelling.
           </p>
         </div>

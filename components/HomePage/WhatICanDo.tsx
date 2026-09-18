@@ -58,19 +58,11 @@ export const WhatICanDo = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
-
-            tl.fromTo(
-              '.services-header',
-              { autoAlpha: 0, y: 40 },
-              { autoAlpha: 1, y: 0, duration: 0.8 }
-            ).fromTo(
-              '.service-accordion-item',
-              { autoAlpha: 0, y: 35 },
-              { autoAlpha: 1, y: 0, duration: 0.7, stagger: 0.12 },
-              '-=0.4'
+            gsap.fromTo(
+              '.service-item',
+              { autoAlpha: 0, y: 15 },
+              { autoAlpha: 1, y: 0, duration: 0.35, ease: 'power2.out', stagger: 0.06 }
             )
-
             observer.disconnect()
           }
         })
@@ -79,7 +71,6 @@ export const WhatICanDo = () => {
     )
 
     observer.observe(sectionRef.current)
-
     return () => observer.disconnect()
   }, [])
 
@@ -91,11 +82,11 @@ export const WhatICanDo = () => {
     <section id="services" ref={sectionRef} className="w-full bg-[#252526] text-white py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Header Section */}
-        <div className="services-header mb-8 sm:mb-12">
-          <h2 className="font-condensed text-3xl sm:text-5xl md:text-6xl font-normal tracking-wide text-white uppercase leading-none select-none mb-3 sm:mb-4">
+        <div className="service-item mb-8 sm:mb-12">
+          <h2 className="font-condensed text-2xl sm:text-3xl md:text-5xl font-normal tracking-wide text-white uppercase leading-none select-none mb-3 sm:mb-4">
             WHAT I CAN DO FOR YOU
           </h2>
-          <p className="text-zinc-400 text-xs sm:text-sm max-w-md leading-relaxed font-normal">
+          <p className="text-zinc-400 text-base sm:text-[18px] max-w-md leading-relaxed font-normal">
             As a digital designer, I am a visual storyteller, crafting experiences that connect deeply and spark creativity.
           </p>
         </div>
@@ -108,7 +99,7 @@ export const WhatICanDo = () => {
             return (
               <div
                 key={service.id}
-                className="service-accordion-item border-b border-white/10 transition-colors duration-300"
+                className="service-item border-b border-white/10 transition-colors duration-300"
               >
                 {/* Header Bar */}
                 <button
@@ -120,7 +111,7 @@ export const WhatICanDo = () => {
                     <span className="font-condensed text-lg sm:text-2xl md:text-3xl font-normal text-white uppercase select-none group-hover:text-lemon transition-colors duration-300">
                       {service.number}
                     </span>
-                    <h3 className="font-condensed text-lg sm:text-2xl md:text-3xl font-normal text-white uppercase select-none tracking-wide group-hover:text-lemon transition-colors duration-300">
+                    <h3 className="font-condensed text-base sm:text-xl md:text-2xl font-normal text-white uppercase select-none tracking-wider group-hover:text-lemon transition-colors duration-300">
                       {service.title}
                     </h3>
                   </div>

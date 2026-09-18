@@ -1,8 +1,7 @@
 'use client'
 
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
-import { gsap } from 'gsap'
 import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button'
 
 import Man from '@/public/images/Oscar.jpeg'
@@ -16,7 +15,6 @@ const SERVICES = [
 ]
 
 export const Contact = () => {
-  const sectionRef = useRef<HTMLDivElement>(null)
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -24,38 +22,6 @@ export const Contact = () => {
     message: '',
   })
   const [submitted, setSubmitted] = useState(false)
-
-  useEffect(() => {
-    if (!sectionRef.current) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
-
-            tl.fromTo(
-              '.contact-portrait',
-              { autoAlpha: 0, x: -40 },
-              { autoAlpha: 1, x: 0, duration: 0.9 }
-            )
-              .fromTo(
-                '.contact-form-col',
-                { autoAlpha: 0, x: 40 },
-                { autoAlpha: 1, x: 0, duration: 0.9 },
-                '-=0.7'
-              )
-
-            observer.disconnect()
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
-    observer.observe(sectionRef.current)
-    return () => observer.disconnect()
-  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -69,16 +35,15 @@ export const Contact = () => {
   return (
     <section
       id="contact"
-      ref={sectionRef}
       className="w-full bg-[#252526] text-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
         {/* Left Column: Portrait + Hi Badge */}
-        <div className="contact-portrait flex justify-center md:justify-start">
+        <div className="flex justify-center md:justify-start">
           <div className="relative w-56 sm:w-64 md:w-72">
             {/* Portrait Image */}
-            <div className="relative w-full aspect-[3/4] rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10">
+            <div className="relative w-full aspect-3/4 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10">
               <Image
                 src={Man}
                 alt="Oscar — Designer Portrait"
@@ -96,7 +61,7 @@ export const Contact = () => {
         </div>
 
         {/* Right Column: Heading + Form */}
-        <div className="contact-form-col">
+        <div>
           <h2 className="font-condensed text-3xl sm:text-5xl md:text-6xl font-normal tracking-wide text-white uppercase leading-none select-none mb-3 sm:mb-4">
             LET'S WORK TOGETHER
           </h2>
