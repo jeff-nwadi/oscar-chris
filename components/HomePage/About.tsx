@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { gsap } from 'gsap'
+import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button'
 
 // Custom Twitter (X) Icon SVG Component
 const TwitterIcon = ({ className = 'w-4 h-4' }: { className?: string }) => (
@@ -203,12 +204,9 @@ export const About = () => {
         </div>
 
         {/* CTA Button: MY STORY */}
-        <div>
-          <Link
-            href="#story"
-            className="about-cta-btn inline-block border border-white/20 hover:border-lemon hover:text-lemon text-zinc-300 font-condensed text-base tracking-wider rounded-full px-6 py-2 transition-all duration-300 uppercase cursor-pointer"
-          >
-            MY STORY
+        <div className="about-cta-btn">
+          <Link href="#story">
+            <InteractiveHoverButton text="My Story" className="w-36 py-2.5" />
           </Link>
         </div>
       </div>

@@ -3,7 +3,6 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import Image from 'next/image'
 import { gsap } from 'gsap'
-import { Navbar } from './Navbar'
 import Man from "@/public/images/Oscar.jpeg"
 
 export const initHeroAnimation = () => {
@@ -127,40 +126,37 @@ export const Hero = () => {
   }, [])
 
   return (
-    <div className="min-h-screen bg-[#252526] text-white transition-colors duration-500 flex flex-col justify-between overflow-x-hidden">
-      {/* Sticky / Top Navbar */}
-      <Navbar />
-
+    <div className="min-h-screen bg-[#252526] text-white transition-colors duration-500 flex flex-col justify-between">
       {/* Main Hero Container */}
       <main className="flex-1 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 py-8 md:py-12 max-w-7xl mx-auto w-full">
         {/* Split Typography & Portrait Layout */}
-        <div className="w-full flex flex-col md:flex-row items-center justify-between gap-6 lg:gap-4 md:items-center">
+        <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-4 lg:items-center">
           
           {/* Left Column: Name Label + DIGITAL Headline */}
           <div
             id="hero-left-content"
-            className="w-full md:w-auto flex-1 flex flex-col items-start text-left z-10 md:pr-2 lg:pr-4 relative"
+            className="w-full lg:w-auto flex-1 flex flex-col items-center text-center sm:items-start sm:text-left lg:items-start lg:text-left z-10 lg:pr-2 xl:pr-4 relative"
           >
-            <span className="text-xs sm:text-[24px] lg:text-[28px] font-heading text-white tracking-wide font-normal uppercase mb-3 md:mb-0 block md:absolute md:bottom-full md:left-0 md:pb-3">
+            <span className="text-base sm:text-[24px] lg:text-[28px] font-heading text-white tracking-wider font-normal uppercase mb-3 sm:mb-0 block sm:absolute sm:bottom-full sm:left-0 sm:pb-3 text-center sm:text-left">
               Oscar Christopher
             </span>
-            <h1 className="font-condensed text-[20vw] sm:text-[16vw] md:text-[6.5rem] lg:text-[8rem] font-normal leading-[0.82] tracking-wide text-white uppercase select-none">
+            <h1 className="font-condensed text-[20vw] sm:text-[16vw] lg:text-[6.5rem] xl:text-[8rem] font-normal leading-[0.82] tracking-wide text-white uppercase select-none text-center sm:text-left">
               DIGITAL
             </h1>
           </div>
 
           {/* Center Column: Portrait Image & Accent Badge */}
-          <div className="shrink-0 my-4 md:my-0 relative flex justify-center items-center z-20">
+          <div className="shrink-0 my-4 lg:my-0 relative flex justify-center items-center z-20">
             <div
               id="hero-portrait-frame"
-              className="relative w-[230px] sm:w-[270px] md:w-[250px] lg:w-[310px] xl:w-[340px] aspect-[3/4] rounded-[2.2rem] sm:rounded-[2.6rem] bg-[#333336] border border-white/10 overflow-hidden"
+              className="relative w-[230px] sm:w-[270px] md:w-[300px] lg:w-[310px] xl:w-[340px] aspect-[3/4] rounded-[2.2rem] sm:rounded-[2.6rem] bg-[#333336] border border-white/10 overflow-hidden"
             >
               <Image
                 src={Man}
                 alt="Oscar Christopher - Digital Designer Portrait"
                 fill
                 priority
-                sizes="(max-width: 768px) 270px, (max-width: 1200px) 310px, 340px"
+                sizes="(max-width: 768px) 300px, (max-width: 1200px) 310px, 340px"
                 className="object-cover object-center transform scale-[1.02] hover:scale-[1.05] transition-transform duration-700"
               />
             </div>
@@ -199,12 +195,12 @@ export const Hero = () => {
           {/* Right Column: DESIGNER Headline + Short Description */}
           <div
             id="hero-right-content"
-            className="w-full md:w-auto flex-1 flex flex-col items-start md:items-start text-left z-10 md:pl-2 lg:pl-4"
+            className="w-full lg:w-auto flex-1 flex flex-col items-center text-center sm:items-end sm:text-right lg:items-start lg:text-left z-10 lg:pl-2 xl:pl-4"
           >
-            <h1 className="font-condensed text-[20vw] sm:text-[16vw] md:text-[6.5rem] lg:text-[8rem] font-normal leading-[0.82] tracking-wide text-white uppercase select-none">
+            <h1 className="font-condensed text-[20vw] sm:text-[16vw] lg:text-[6.5rem] xl:text-[8rem] font-normal leading-[0.82] tracking-wide text-white uppercase select-none text-center sm:text-right lg:text-left">
               DESIGNER
             </h1>
-            <p className="text-zinc-400 text-base sm:text-[18px] font-normal max-w-[240px] leading-relaxed mt-2 sm:mt-4 md:mt-5">
+            <p className="text-zinc-400 text-base sm:text-[18px] font-normal max-w-[240px] leading-relaxed mt-2 sm:mt-4 lg:mt-5 text-center sm:text-right lg:text-left mx-auto sm:ml-auto sm:mr-0 lg:mx-0">
               I'm a digital designer and Video Editor
             </p>
           </div>
