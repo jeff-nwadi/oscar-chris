@@ -85,7 +85,7 @@ export const About = () => {
             <span className="font-condensed text-4xl sm:text-5xl md:text-6xl font-normal text-lemon block leading-none select-none">
               5
             </span>
-            <span className="text-lg sm:text-base text-zinc-300 font-medium block mt-1 leading-snug">
+            <span className="text-lg sm:text-sm text-zinc-300 font-medium block mt-1 leading-snug">
               Years of Experience
             </span>
           </div>
@@ -94,7 +94,7 @@ export const About = () => {
             <span className="font-condensed text-4xl sm:text-5xl md:text-6xl font-normal text-lemon block leading-none select-none">
               20+
             </span>
-            <span className="text-lg sm:text-base text-zinc-300 font-medium block mt-1 leading-snug">
+            <span className="text-lg sm:text-sm text-zinc-300 font-medium block mt-1 leading-snug">
               Completed Projects
             </span>
           </div>
@@ -103,14 +103,14 @@ export const About = () => {
             <span className="font-condensed text-4xl sm:text-5xl md:text-6xl font-normal text-lemon block leading-none select-none">
               30+
             </span>
-            <span className="text-lg sm:text-base text-zinc-300 font-medium block mt-1 leading-snug">
+            <span className="text-lg sm:text-sm text-zinc-300 font-medium block mt-1 leading-snug">
               Clients Worldwide
             </span>
           </div>
         </div>
 
         {/* Contact Details Row */}
-        <div className="about-item flex flex-col sm:flex-row gap-4 sm:gap-12 mb-8 text-lg sm:text-base text-zinc-300">
+        <div className="about-item flex flex-col sm:flex-row gap-4 sm:gap-12 mb-8 text-sm sm:text-base text-zinc-300">
           <div>
             <span className="text-zinc-400 block mb-0.5">Call Today :</span>
             <a
